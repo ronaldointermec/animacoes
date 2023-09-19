@@ -1,31 +1,37 @@
 import 'package:flutter/material.dart';
 
-class AnimicaoImplicita extends StatefulWidget {
-  const AnimicaoImplicita({super.key});
+class AnimacaoImplicita extends StatefulWidget {
+  const AnimacaoImplicita({super.key});
 
   @override
-  State<AnimicaoImplicita> createState() => _AnimicaoImplicitaState();
+  State<AnimacaoImplicita> createState() => _AnimacaoImplicitaState();
 }
 
-class _AnimicaoImplicitaState extends State<AnimicaoImplicita> {
+class _AnimacaoImplicitaState extends State<AnimacaoImplicita> {
+  bool _status = true;
+
   @override
   Widget build(BuildContext context) {
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
-      children: [
-        Container(
+      children: <Widget>[
+        AnimatedContainer(
           padding: EdgeInsets.all(20),
-          width: 200,
-          height: 200,
-          color: Colors.purpleAccent,
+          width: _status ? 200 : 300,
+          height: _status ? 300 : 200,
+          color: _status ? Colors.white : Colors.purpleAccent,
+          duration: const Duration(seconds: 2),
+          curve: Curves.elasticInOut,
+          child: Image.asset("imagens/logo.png"),
         ),
         TextButton(
             onPressed: () {
-              setState(() {});
+              setState(() {
+                _status = !_status;
+              });
             },
             child: Text('Alterar'))
       ],
     );
-
   }
 }

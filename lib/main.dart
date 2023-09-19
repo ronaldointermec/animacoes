@@ -1,11 +1,5 @@
+import 'package:animacoes/AnimacaoImplicita.dart';
 import 'package:flutter/material.dart';
 
-import 'AnimacaoImplicita.dart';
-
-void main() {
-  const MaterialApp(
-    title: "Animações",
-    home: AnimicaoImplicita(),
-    debugShowCheckedModeBanner: false,
-  );
-}
+void main() => runApp(const MaterialApp(
+    debugShowCheckedModeBanner: false, home: AnimacaoImplicita()));
